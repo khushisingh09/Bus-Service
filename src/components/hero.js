@@ -2,15 +2,19 @@
 import React, { useState } from 'react';
 import Navbar from './navbar';
 import { FaBus, FaCalendarAlt, FaUser } from 'react-icons/fa'; // 
-
+import { useNavigate } from "react-router-dom";
 function Hero() {
   const BackgroundImage = "/assets/image2.jpg";
-
+  const navigate = useNavigate();
   const [fromLocation, setFromLocation] = useState('');
   const [toLocation, setToLocation] = useState('');
   const [departureDate, setDepartureDate] = useState('');
   const [passengers, setPassengers] = useState('1 adult');
   const [busType, setBusType] = useState('Executive Bus');
+
+  const handleClick = () => {
+    navigate("/bussearch"); // Navigates back to the previous page
+  };
 
   return (
     <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${BackgroundImage})` }}>
@@ -102,7 +106,7 @@ function Hero() {
             </button>
           </div>
 
-          <button className="p-3 bg-blue-500 text-white rounded-lg flex items-center">
+          <button className="p-3 bg-blue-500 text-white rounded-lg flex items-center" onClick={handleClick}>
             Search <span className="ml-2">→</span>
           </button>
         </div>
