@@ -1,13 +1,11 @@
 import React, { useRef } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import icons for arrows
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const BusCard = ({ image, busName, startTime, endTime, from, to, busType, seats, price, journeyHours }) => {
   return (
     <div className="p-4">
-      {/* Outer div to create the container effect */}
-      <div className="min-w-[400px] max-w-md rounded overflow-hidden shadow-lg border bg-white transform transition duration-500 hover:scale-105 hover:shadow-xl">
-        
-        {/* Bus image with border and rounded corners */}
+      {/* Adjusted the min-width for mobile view */}
+      <div className="min-w-[300px] md:min-w-[400px] max-w-md rounded overflow-hidden shadow-lg border bg-white transform transition duration-500 hover:scale-105 hover:shadow-xl">
         <div className="p-4">
           <img className="w-full h-48 object-cover border-2 border-gray-300 rounded-lg" src={image} alt={busName} />
         </div>
@@ -36,16 +34,13 @@ const BusCard = ({ image, busName, startTime, endTime, from, to, busType, seats,
           {/* Bus Type, Empty Seats, and Price aligned on same level */}
           <div className="flex justify-between items-center mb-4">
             <div>
-              {/* Same font size for Bus Type and Empty Seats */}
               <div className="text-gray-700 text-base">{busType}</div>
               <div className="text-gray-700 text-base">{seats} Empty Seats</div>
             </div>
-            {/* Price with increased font size */}
             <div className="font-bold text-blue-600 text-2xl">₹{price}</div>
           </div>
         </div>
 
-        {/* Book Tickets Button with more padding and margin */}
         <div className="px-6 pb-4">
           <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg">
             Book Tickets
@@ -59,13 +54,12 @@ const BusCard = ({ image, busName, startTime, endTime, from, to, busType, seats,
 const BusService = () => {
   const scrollContainerRef = useRef(null);
 
-  // Scroll Functionality for left/right buttons
   const scrollLeft = () => {
-    scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+    scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
   };
 
   const scrollRight = () => {
-    scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+    scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
   };
 
   return (
@@ -81,7 +75,6 @@ const BusService = () => {
             <option>Bokaro</option>
             <option>Ranchi</option>
             <option>Jamshedpur</option>
-            {/* Add more districts if needed */}
           </select>
         </div>
       </div>
